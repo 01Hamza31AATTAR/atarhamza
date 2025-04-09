@@ -298,6 +298,19 @@
     background: linear-gradient(to right, #0a0f1c 0%, transparent 100%);
     z-index: 2;
     }
+
+    #more-text {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 1s ease, opacity 1s ease;
+    }
+
+    #more-text.show {
+    max-height: 500px; /* Large enough to hold the full content */
+    opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -342,9 +355,16 @@
     </div>
     <p class="about-role">Software Engineering & Data Analytics Student</p>
     <p class="about-description">
-      Currently pursuing engineering studies at EMINES and enrolled in the ALX Data Analytics program. My work includes building ML models, designing prototypes, and solving startup challenges with code and data.
-    </p>
-    <button class="read-more">Read More</button>
+        Hamza AATTAR is a passionate data analytics student currently enrolled in the ALX Data Analytics program and pursuing his second year in Industrial Management Engineering at EMINES, Morocco. With a strong interest in technology and entrepreneurship, Hamza is driven to solve complex problems through data-driven insights.
+
+        <span id="more-text"> Recently, he developed a prototype app to improve access to farming technology rentals — a solution inspired by real challenges he encountered. His strong research skills and attention to detail earned recognition from teammates, particularly in selecting and analyzing impactful data.
+        
+        In addition to hands-on analytics work, Hamza has contributed to diverse experimental physics projects, where precision, adaptability, and teamwork were essential.
+        
+        Looking ahead, he aims to become a data scientist and entrepreneur, building innovative tools that create value for businesses and communities. He is currently seeking an internship at a forward-thinking tech startup, where he can contribute his reliability, problem-solving mindset, and analytical expertise.
+        
+        Hamza is open to collaboration and eager to connect with those working on innovative, data-powered solutions.</span>   </p>
+    <button class="read-more" onclick="toggleMore()">Read More</button>
   </section>
 
   <!-- Education & Experience -->
@@ -456,4 +476,16 @@
   </section>
 
 </body>
+
+<script>
+    function toggleMore() {
+    const moreText = document.getElementById("more-text");
+    const btn = document.querySelector(".read-more");
+
+    moreText.classList.toggle("show");
+    btn.textContent = moreText.classList.contains("show") ? "Read Less" : "Read More";
+    }
+</script>
+
+
 </html>
